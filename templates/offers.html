@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block title %}Ofertas - iNova Store{% endblock %}
+
+{% block content %}
+<section class="section" style="padding-top: 2rem;">
+    <div class="section-header">
+        <h2>Ofertas Especiales</h2>
+        <p>Promociones verificadas en modelos seleccionados</p>
+        <p style="font-size: 0.9rem; color: var(--gris-medio); margin-top: 0.5rem;">* Solo se muestran ofertas realmente configuradas</p>
+    </div>
+    
+    <div class="products-grid">
+        {% for product in products %}
+        <div class="product-card" data-product-id="{{ product.id }}">
+            <div class="product-badges">
+                <span class="badge badge-sale">Oferta</span>
+                {% if product.discount and product.discount > 0 %}
+                <span class="badge badge-sale">-{{ product.discount }}%</span>
+                {% endif %}
+            </div>
+            <button class="product-favorite" title="Agregar a favoritos">
+                <i class="lucide-heart"></i>
+            </button>
+            <img src="{{ product.variants[0].image if product.variants else product.images[0] }}" alt="{{ product.name }}" class="product-image" onerror="this.src='https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400'">
+            <div class="product-info">
+                <h3 class="product-name">{{ product.name }}</h3>
+                <p class="product-capacity">Almacenamiento: {{ product.variants[0].capacity if product.variants else 'N/A' }}</p>
+                
+                <div class="product-colors">
+                    {% for variant in product.variants %}
+                    <button class="color-option {% if loop.first %}active{% endif %}" 
+                            style="background-color: {{ variant.colorHex }};" 
+                            data-color="{{ variant.color }}" 
+                            data-capacity="{{ variant.capacity }}" 
+                            data-price="{{ variant.price }}" 
+                            data-image="{{ variant.image }}">
+                    </button>
+                    {% endfor %}
+                </div>
+                
+                <div class="product-prices">
+                    {% if product.originalPrice %}
+                    <span class="price-current">{{ "{:,.0f}".format(product.variants[0].price) }} COP</span>
+                    <span class="price-old">{{ "{:,.0f}".format(product.originalPrice) }} COP</span>
+                    {% else %}
+                    <span class="price-current">{{ "{:,.0f}".format(product.variants[0].price) }} COP</span>
+                    {% endif %}
+                </div>
+                
+                <div class="product-stock">
+                    {% set first_variant = product.variants[0] if product.variants else none %}
+                    {% if first_variant %}
+                        {% if first_variant.stock > 10 %}
+                        <span class="stock-available">● Disponible</span>
+                        {% elif first_variant.stock > 0 %}
+                        <span class="stock-low">● Últimas unidades ({{ first_variant.stock }})</span>
+                        {% else %}
+                        <span class="stock-out">● Agotado</span>
+                        {% endif %}
+                    {% endif %}
+                </div>
+                
+                <div class="product-actions">
+                    <a href="{{ url_for('product_detail', product_id=product.id) }}" class="btn btn-outline btn-small">
+                        <i class="lucide-eye"></i>
+                        Ver detalles
+                    </a>
+                    <button class="btn btn-primary btn-small btn-add-cart" {% if product.variants and product.variants[0].stock == 0 %}disabled style="opacity: 0.5; cursor: not-allowed;"{% endif %}>
+                        <i class="lucide-shopping-cart"></i>
+                        Agregar
+                    </button>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <div style="grid-column: 1 / -1; text-align: center; padding: 3rem;">
+            <i class="lucide-tag" style="font-size: 3rem; color: var(--gris-medio); margin-bottom: 1rem;"></i>
+            <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem;">No hay ofertas configuradas</h3>
+            <p style="color: var(--gris-medio); margin-bottom: 1.5rem;">Las ofertas se mostrarán aquí cuando estén configuradas</p>
+            <a href="{{ url_for('catalog') }}" class="btn btn-primary">Ver catálogo completo</a>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

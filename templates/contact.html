@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block title %}Contacto - iNova Store{% endblock %}
+
+{% block content %}
+<section class="section" style="padding-top: 2rem;">
+    <div class="section-header">
+        <h2>Contacto</h2>
+        <p>¿Tienes alguna pregunta? Estamos aquí para ayudarte</p>
+    </div>
+    
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; max-width: 900px; margin: 0 auto;">
+        <div style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+            <h3 style="font-size: 1.2rem; font-weight: 600; margin-bottom: 1.5rem;">Información de contacto</h3>
+            
+            <div style="margin-bottom: 1.5rem;">
+                <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+                    <i class="lucide-phone" style="color: var(--gris-oscuro);"></i>
+                    <div>
+                        <p style="font-weight: 600;">Teléfono</p>
+                        <p style="color: var(--gris-medio); font-size: 0.9rem;">+57 300 123 4567</p>
+                    </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem;">
+                    <i class="lucide-mail" style="color: var(--gris-oscuro);"></i>
+                    <div>
+                        <p style="font-weight: 600;">Email</p>
+                        <p style="color: var(--gris-medio); font-size: 0.9rem;">info@inovastore.com</p>
+                    </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                    <i class="lucide-map-pin" style="color: var(--gris-oscuro);"></i>
+                    <div>
+                        <p style="font-weight: 600;">Ubicación</p>
+                        <p style="color: var(--gris-medio); font-size: 0.9rem;">Colombia - Envíos a nivel nacional</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="background: #25D366; padding: 1rem; border-radius: 10px; text-align: center;">
+                <a href="https://wa.me/573001234567" target="_blank" style="color: white; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 0.5rem; font-weight: 600;">
+                    <i class="lucide-message-circle"></i>
+                    Contactar por WhatsApp
+                </a>
+            </div>
+        </div>
+        
+        <div style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+            <h3 style="font-size: 1.2rem; font-weight: 600; margin-bottom: 1.5rem;">Envíanos un mensaje</h3>
+            
+            <div style="margin-bottom: 1rem;">
+                <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Nombre *</label>
+                <input type="text" style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 10px; font-family: 'Inter', sans-serif;">
+            </div>
+            
+            <div style="margin-bottom: 1rem;">
+                <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Email *</label>
+                <input type="email" style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 10px; font-family: 'Inter', sans-serif;">
+            </div>
+            
+            <div style="margin-bottom: 1rem;">
+                <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Asunto *</label>
+                <input type="text" style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 10px; font-family: 'Inter', sans-serif;">
+            </div>
+            
+            <div style="margin-bottom: 1.5rem;">
+                <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Mensaje *</label>
+                <textarea rows="4" style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 10px; font-family: 'Inter', sans-serif; resize: vertical;"></textarea>
+            </div>
+            
+            <button class="btn btn-primary" style="width: 100%; justify-content: center;">Enviar mensaje</button>
+            
+            <p style="text-align: center; margin-top: 1rem; font-size: 0.85rem; color: var(--gris-medio);">Formulario de demostración</p>
+        </div>
+    </div>
+</section>
+{% endblock %}

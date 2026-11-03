@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+
+{% block title %}Checkout - iNova Store{% endblock %}
+
+{% block content %}
+<section class="section" style="padding-top: 2rem;">
+    <div class="section-header">
+        <h2>Finalizar Compra</h2>
+        <p>Datos de demostración - No se procesará ningún pago real</p>
+    </div>
+    
+    <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 2rem;">
+        <!-- Checkout Form -->
+        <div style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+            <h3 style="font-size: 1.2rem; font-weight: 600; margin-bottom: 1.5rem;">Datos del comprador</h3>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                <div>
+                    <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Nombre completo *</label>
+                    <input type="text" style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 10px; font-family: 'Inter', sans-serif;" required>
+                </div>
+                <div>
+                    <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Teléfono *</label>
+                    <input type="tel" style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 10px; font-family: 'Inter', sans-serif;" required>
+                </div>
+            </div>
+            
+            <div style="margin-bottom: 1rem;">
+                <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Correo electrónico *</label>
+                <input type="email" style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 10px; font-family: 'Inter', sans-serif;" required>
+            </div>
+            
+            <h3 style="font-size: 1.2rem; font-weight: 600; margin: 2rem 0 1.5rem;">Dirección de envío</h3>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                <div>
+                    <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Departamento *</label>
+                    <select style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 10px; font-family: 'Inter', sans-serif;" required>
+                        <option value="">Seleccionar</option>
+                        <option value="antioquia">Antioquia</option>
+                        <option value="bogota">Bogotá D.C.</option>
+                        <option value="valle">Valle del Cauca</option>
+                        <option value="cundinamarca">Cundinamarca</option>
+                    </select>
+                </div>
+                <div>
+                    <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Ciudad *</label>
+                    <input type="text" style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 10px; font-family: 'Inter', sans-serif;" required>
+                </div>
+            </div>
+            
+            <div style="margin-bottom: 1.5rem;">
+                <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Dirección completa *</label>
+                <input type="text" placeholder="Calle, número, apartamento, barrio" style="width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 10px; font-family: 'Inter', sans-serif;" required>
+            </div>
+            
+            <h3 style="font-size: 1.2rem; font-weight: 600; margin: 2rem 0 1.5rem;">Método de pago</h3>
+            
+            <div style="background: var(--amarillo-crema); padding: 1rem; border-radius: 10px; margin-bottom: 1.5rem;">
+                <p style="font-size: 0.9rem;"><strong>Checkout de demostración</strong></p>
+                <p style="font-size: 0.9rem;">No se solicitarán datos de tarjeta. Puedes confirmar tu pedido por WhatsApp.</p>
+            </div>
+            
+            <button class="btn btn-primary" style="width: 100%; justify-content: center; padding: 0.9rem;" onclick="confirmOrder()">
+                <i class="lucide-check"></i>
+                Confirmar pedido (Demostración)
+            </button>
+            
+            <p style="text-align: center; margin-top: 1rem; font-size: 0.85rem; color: var(--gris-medio);">
+                O contacta por <a href="https://wa.me/573001234567" target="_blank" style="color: #25D366; font-weight: 600;">WhatsApp</a>
+            </p>
+        </div>
+        
+        <!-- Order Summary -->
+        <div>
+            <div style="background: white; padding: 1.5rem; border-radius: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+                <h3 style="font-size: 1.2rem; font-weight: 600; margin-bottom: 1rem;">Resumen del pedido</h3>
+                <div id="checkoutItems"></div>
+                <hr style="border: none; border-top: 1px solid #eee; margin: 1rem 0;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                    <span>Subtotal</span>
+                    <span id="checkoutSubtotal">$ 0 COP</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                    <span>Envío</span>
+                    <span>Por calcular</span>
+                </div>
+                <hr style="border: none; border-top: 1px solid #eee; margin: 1rem 0;">
+                <div style="display: flex; justify-content: space-between; font-weight: 700; font-size: 1.1rem;">
+                    <span>Total</span>
+                    <span id="checkoutTotal">$ 0 COP</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+function loadCheckout() {
+    const cart = JSON.parse(localStorage.getItem('inovaCart') || '[]');
+    const itemsDiv = document.getElementById('checkoutItems');
+    let subtotal = 0;
+    
+    itemsDiv.innerHTML = '';
+    cart.forEach(item => {
+        subtotal += item.price * item.quantity;
+        const itemDiv = document.createElement('div');
+        itemDiv.style.cssText = 'display: flex; gap: 0.75rem; margin-bottom: 0.75rem; padding-bottom: 0.75rem; border-bottom: 1px solid #f0f0f0;';
+        itemDiv.innerHTML = `
+            <img src="${item.image}" alt="${item.name}" style="width: 60px; height: 60px; object-fit: contain; background: var(--gris-claro); border-radius: 8px;" onerror="this.src='https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=60'">
+            <div style="flex: 1;">
+                <p style="font-size: 0.85rem; font-weight: 600; margin-bottom: 0.2rem;">${item.name}</p>
+                <p style="font-size: 0.75rem; color: var(--gris-medio);">${item.color} | ${item.capacity}</p>
+                <p style="font-size: 0.8rem;">Cant: ${item.quantity} - ${new Intl.NumberFormat('es-CO').format(item.price * item.quantity)} COP</p>
+            </div>
+        `;
+        itemsDiv.appendChild(itemDiv);
+    });
+    
+    document.getElementById('checkoutSubtotal').textContent = '$ ' + new Intl.NumberFormat('es-CO').format(subtotal) + ' COP';
+    document.getElementById('checkoutTotal').textContent = '$ ' + new Intl.NumberFormat('es-CO').format(subtotal) + ' COP';
+}
+
+function confirmOrder() {
+    alert('¡Pedido confirmado (Demostración)!\n\nGracias por tu compra. Te contactaremos pronto.\n\nNota: Este es un sitio de demostración.');
+    localStorage.removeItem('inovaCart');
+    window.location.href = '{{ url_for("home") }}';
+}
+
+document.addEventListener('DOMContentLoaded', loadCheckout);
+</script>
+{% endblock %}

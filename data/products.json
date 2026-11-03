@@ -1,0 +1,694 @@
+[
+  {
+    "id": "iphone-18-pro-max-256gb-titanium",
+    "name": "iPhone 18 Pro Max",
+    "model": "iPhone 18 Pro Max",
+    "brand": "Apple",
+    "generation": "18",
+    "category": "iPhone Pro Max",
+    "description": "El iPhone más avanzado con el chip A18 Pro, sistema de cámara revolucionario con Control de Cámara, pantalla Super Retina XDR con ProMotion y Dynamic Island.",
+    "specs": {
+      "chip": "A18 Pro (3nm)",
+      "display": "6.9 pulgadas Super Retina XDR OLED, ProMotion 120Hz, Always-On",
+      "camera": "Sistema de cámara Pro triple: 48MP Principal + 48MP Ultra Wide + 48MP Teleobjetivo 5x",
+      "frontal_camera": "12MP TrueDepth con Autofocus",
+      "battery": "Hasta 37 horas de reproducción de video",
+      "charging": "Carga rápida MagSafe y USB-C",
+      "storage": "256 GB, 512 GB, 1 TB",
+      "os": "iOS 18",
+      "connectivity": "5G, Wi-Fi 7, Bluetooth 5.3, USB-C"
+    },
+    "variants": [
+      {
+        "id": "v18pm1",
+        "color": "Titanio Natural",
+        "colorHex": "#8e8e93",
+        "capacity": "256 GB",
+        "price": 6799900,
+        "stock": 4,
+        "image": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-16-pro-max-finish-select-202409?wid=940&hei=1112&fmt=png-alpha&.v=1726168004949"
+      },
+      {
+        "id": "v18pm2",
+        "color": "Titanio Negro",
+        "colorHex": "#1c1c1e",
+        "capacity": "512 GB",
+        "price": 7999900,
+        "stock": 3,
+        "image": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-16-pro-max-finish-select-202409-black-titanium?wid=940&hei=1112&fmt=png-alpha&.v=1726167998999"
+      }
+    ],
+    "images": [
+      "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-16-pro-max-finish-select-202409?wid=940&hei=1112&fmt=png-alpha&.v=1726168004949"
+    ],
+    "tags": [
+      "Nuevo"
+    ],
+    "featured": true,
+    "discount": 0,
+    "status": "nuevo"
+  },
+  {
+    "id": "iphone-18-pro-128gb-titanium",
+    "name": "iPhone 18 Pro",
+    "model": "iPhone 18 Pro",
+    "brand": "Apple",
+    "generation": "18",
+    "category": "iPhone Pro",
+    "description": "Potencia profesional con chip A18 Pro, sistema de cámara avanzado y diseño en titanio. Perfecto para crear y trabajar sin límites.",
+    "specs": {
+      "chip": "A18 Pro (3nm)",
+      "display": "6.3 pulgadas Super Retina XDR OLED, ProMotion 120Hz, Always-On",
+      "camera": "Sistema de cámara Pro triple: 48MP Principal + 48MP Ultra Wide + 12MP Teleobjetivo 5x",
+      "frontal_camera": "12MP TrueDepth con Autofocus",
+      "battery": "Hasta 33 horas de reproducción de video",
+      "charging": "Carga rápida MagSafe y USB-C",
+      "storage": "128 GB, 256 GB, 512 GB, 1 TB",
+      "os": "iOS 18",
+      "connectivity": "5G, Wi-Fi 7, Bluetooth 5.3, USB-C"
+    },
+    "variants": [
+      {
+        "id": "v18p1",
+        "color": "Titanio Natural",
+        "colorHex": "#8e8e93",
+        "capacity": "128 GB",
+        "price": 5499900,
+        "stock": 6,
+        "image": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-16-pro-finish-select-202409?wid=940&hei=1112&fmt=png-alpha&.v=1726165764937"
+      },
+      {
+        "id": "v18p2",
+        "color": "Titanio Desierto",
+        "colorHex": "#d4c4a9",
+        "capacity": "256 GB",
+        "price": 5999900,
+        "stock": 5,
+        "image": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-16-pro-finish-select-202409-desert-titanium?wid=940&hei=1112&fmt=png-alpha&.v=1726165772132"
+      }
+    ],
+    "images": [
+      "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-16-pro-finish-select-202409?wid=940&hei=1112&fmt=png-alpha&.v=1726165764937"
+    ],
+    "tags": [
+      "Nuevo"
+    ],
+    "featured": true,
+    "discount": 0,
+    "status": "nuevo"
+  },
+  {
+    "id": "iphone-17-pro-max-256gb-deep-blue",
+    "name": "iPhone 17 Pro Max",
+    "model": "iPhone 17 Pro Max",
+    "brand": "Apple",
+    "generation": "17",
+    "category": "iPhone Pro Max",
+    "description": "El iPhone más potente con chip A19 Pro, sistema de cámara Pro avanzado con teleobjetivo periscópico, pantalla Super Retina XDR de 6.9 pulgadas con ProMotion 120Hz.",
+    "specs": {
+      "chip": "A19 Pro (3nm)",
+      "display": "6.9 pulgadas Super Retina XDR OLED, ProMotion 120Hz, Always-On",
+      "camera": "Sistema de cámara Pro triple: 48MP Principal + 48MP Ultra Wide + 48MP Teleobjetivo 5x",
+      "frontal_camera": "12MP TrueDepth con Autofocus",
+      "battery": "Hasta 37 horas de reproducción de video",
+      "charging": "Carga rápida MagSafe y USB-C",
+      "storage": "256 GB, 512 GB, 1 TB",
+      "os": "iOS 19",
+      "connectivity": "5G, Wi-Fi 7, Bluetooth 5.3, USB-C"
+    },
+    "variants": [
+      {
+        "id": "v1",
+        "color": "Azul Profundo",
+        "colorHex": "#1a365d",
+        "capacity": "256 GB",
+        "price": 6299900,
+        "stock": 5,
+        "image": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-16-pro-max-finish-select-202409-blue-titanium?wid=940&hei=1112&fmt=png-alpha&.v=1726167997654"
+      },
+      {
+        "id": "v2",
+        "color": "Titanio Natural",
+        "colorHex": "#8e8e93",
+        "capacity": "512 GB",
+        "price": 7499900,
+        "stock": 3,
+        "image": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-16-pro-max-finish-select-202409?wid=940&hei=1112&fmt=png-alpha&.v=1726168004949"
+      }
+    ],
+    "images": [
+      "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-16-pro-max-finish-select-202409-blue-titanium?wid=940&hei=1112&fmt=png-alpha&.v=1726167997654"
+    ],
+    "tags": [
+      "Nuevo"
+    ],
+    "featured": true,
+    "discount": 0,
+    "status": "nuevo"
+  },
+  {
+    "id": "iphone-17-pro-128gb-silver",
+    "name": "iPhone 17 Pro",
+    "model": "iPhone 17 Pro",
+    "brand": "Apple",
+    "generation": "17",
+    "category": "iPhone Pro",
+    "description": "Chip A19 Pro, sistema de cámara Pro triple con teleobjetivo 5x, pantalla Super Retina XDR de 6.3 pulgadas con ProMotion.",
+    "specs": {
+      "chip": "A19 Pro (3nm)",
+      "display": "6.3 pulgadas Super Retina XDR OLED, ProMotion 120Hz, Always-On",
+      "camera": "Sistema de cámara Pro triple: 48MP Principal + 48MP Ultra Wide + 12MP Teleobjetivo 5x",
+      "frontal_camera": "12MP TrueDepth con Autofocus",
+      "battery": "Hasta 33 horas de reproducción de video",
+      "charging": "Carga rápida MagSafe y USB-C",
+      "storage": "128 GB, 256 GB, 512 GB, 1 TB",
+      "os": "iOS 19",
+      "connectivity": "5G, Wi-Fi 7, Bluetooth 5.3, USB-C"
+    },
+    "variants": [
+      {
+        "id": "v17p1",
+        "color": "Titanio Blanco",
+        "colorHex": "#f2f2f7",
+        "capacity": "128 GB",
+        "price": 5299900,
+        "stock": 7,
+        "image": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-16-pro-finish-select-202409-white-titanium?wid=940&hei=1112&fmt=png-alpha&.v=1726168006718"
+      },
+      {
+        "id": "v17p2",
+        "color": "Titanio Negro",
+        "colorHex": "#1c1c1e",
+        "capacity": "256 GB",
+        "price": 5799900,
+        "stock": 4,
+        "image": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-16-pro-finish-select-202409-black-titanium?wid=940&hei=1112&fmt=png-alpha&.v=1726167998999"
+      }
+    ],
+    "images": [
+      "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-16-pro-finish-select-202409-white-titanium?wid=940&hei=1112&fmt=png-alpha&.v=1726168006718"
+    ],
+    "tags": [
+      "Nuevo"
+    ],
+    "featured": true,
+    "discount": 0,
+    "status": "nuevo"
+  },
+  {
+    "id": "iphone-16-pro-max-256gb-black-titanium",
+    "name": "iPhone 16 Pro Max",
+    "model": "iPhone 16 Pro Max",
+    "brand": "Apple",
+    "generation": "16",
+    "category": "iPhone Pro Max",
+    "description": "Chip A18 Pro, pantalla Super Retina XDR de 6.9 pulgadas con ProMotion, sistema de cámara Pro con teleobjetivo 5x y grabación en 4K Dolby Vision.",
+    "specs": {
+      "chip": "A18 Pro (3nm)",
+      "display": "6.9 pulgadas Super Retina XDR OLED, ProMotion 120Hz, Always-On",
+      "camera": "Sistema de cámara Pro triple: 48MP Principal + 48MP Ultra Wide + 12MP Teleobjetivo 5x",
+      "frontal_camera": "12MP TrueDepth con Autofocus",
+      "battery": "Hasta 33 horas de reproducción de video",
+      "charging": "Carga rápida MagSafe y USB-C",
+      "storage": "256 GB, 512 GB, 1 TB",
+      "os": "iOS 18",
+      "connectivity": "5G, Wi-Fi 6E, Bluetooth 5.3, USB-C"
+    },
+    "variants": [
+      {
+        "id": "v16pm1",
+        "color": "Titanio Negro",
+        "colorHex": "#1c1c1e",
+        "capacity": "256 GB",
+        "price": 5999900,
+        "stock": 6,
+        "image": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-16-pro-max-finish-select-202409-black-titanium?wid=940&hei=1112&fmt=png-alpha&.v=1726167998999"
+      },
+      {
+        "id": "v16pm2",
+        "color": "Titanio Natural",
+        "colorHex": "#8e8e93",
+        "capacity": "512 GB",
+        "price": 6999900,
+        "stock": 4,
+        "image": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-16-pro-max-finish-select-202409?wid=940&hei=1112&fmt=png-alpha&.v=1726168004949"
+      }
+    ],
+    "images": [
+      "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-16-pro-max-finish-select-202409-black-titanium?wid=940&hei=1112&fmt=png-alpha&.v=1726167998999"
+    ],
+    "tags": [
+      "Más vendido"
+    ],
+    "featured": true,
+    "discount": 0,
+    "status": "nuevo"
+  },
+  {
+    "id": "iphone-16-pro-128gb-black-titanium",
+    "name": "iPhone 16 Pro",
+    "model": "iPhone 16 Pro",
+    "brand": "Apple",
+    "generation": "16",
+    "category": "iPhone Pro",
+    "description": "Chip A18 Pro, sistema de cámara más versátil con zoom óptico 5x, pantalla Super Retina XDR de 6.3 pulgadas con ProMotion y diseño en titanio grado 5.",
+    "specs": {
+      "chip": "A18 Pro (3nm)",
+      "display": "6.3 pulgadas Super Retina XDR OLED, ProMotion 120Hz, Always-On",
+      "camera": "Sistema de cámara Pro triple: 48MP Principal + 48MP Ultra Wide + 12MP Teleobjetivo 5x",
+      "frontal_camera": "12MP TrueDepth con Autofocus",
+      "battery": "Hasta 27 horas de reproducción de video",
+      "charging": "Carga rápida MagSafe y USB-C",
+      "storage": "128 GB, 256 GB, 512 GB, 1 TB",
+      "os": "iOS 18",
+      "connectivity": "5G, Wi-Fi 6E, Bluetooth 5.3, USB-C"
+    },
+    "variants": [
+      {
+        "id": "v3",
+        "color": "Titanio Negro",
+        "colorHex": "#1c1c1e",
+        "capacity": "128 GB",
+        "price": 4999900,
+        "stock": 8,
+        "image": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-16-pro-finish-select-202409-black-titanium?wid=940&hei=1112&fmt=png-alpha&.v=1726167998999"
+      },
+      {
+        "id": "v4",
+        "color": "Titanio Natural",
+        "colorHex": "#8e8e93",
+        "capacity": "256 GB",
+        "price": 5499900,
+        "stock": 6,
+        "image": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-16-pro-finish-select-202409?wid=940&hei=1112&fmt=png-alpha&.v=1726165764937"
+      }
+    ],
+    "images": [
+      "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-16-pro-finish-select-202409-black-titanium?wid=940&hei=1112&fmt=png-alpha&.v=1726167998999"
+    ],
+    "tags": [
+      "Más vendido"
+    ],
+    "featured": true,
+    "discount": 0,
+    "status": "nuevo"
+  },
+  {
+    "id": "iphone-16-128gb-ultramarine",
+    "name": "iPhone 16",
+    "model": "iPhone 16",
+    "brand": "Apple",
+    "generation": "16",
+    "category": "iPhone nuevos",
+    "description": "Rendimiento increíble con chip A18, Cámara Fusion de 48MP, botón Acción y Control de Cámara. Diseño duradero con Ceramic Shield.",
+    "specs": {
+      "chip": "A18 (3nm)",
+      "display": "6.1 pulgadas Super Retina XDR OLED",
+      "camera": "Cámara Fusion de 48MP + Ultra Wide de 12MP",
+      "frontal_camera": "12MP TrueDepth",
+      "battery": "Hasta 22 horas de reproducción de video",
+      "charging": "Carga MagSafe y USB-C",
+      "storage": "128 GB, 256 GB, 512 GB",
+      "os": "iOS 18",
+      "connectivity": "5G, Wi-Fi 7, Bluetooth 5.3, USB-C"
+    },
+    "variants": [
+      {
+        "id": "v5",
+        "color": "Ultramarino",
+        "colorHex": "#007aff",
+        "capacity": "128 GB",
+        "price": 3799900,
+        "stock": 12,
+        "image": "/static/images/iphone-16-reference.png"
+      },
+      {
+        "id": "v6",
+        "color": "Rosa",
+        "colorHex": "#ff2d92",
+        "capacity": "128 GB",
+        "price": 3799900,
+        "stock": 0,
+        "image": "/static/images/iphone-16-reference.png"
+      }
+    ],
+    "images": [
+      "/static/images/iphone-16-reference.png"
+    ],
+    "tags": [],
+    "featured": true,
+    "discount": 0,
+    "status": "nuevo"
+  },
+  {
+    "id": "iphone-15-pro-max-256gb-blue-titanium",
+    "name": "iPhone 15 Pro Max",
+    "model": "iPhone 15 Pro Max",
+    "brand": "Apple",
+    "generation": "15",
+    "category": "iPhone Pro Max",
+    "description": "Chip A17 Pro, diseño en titanio, zoom óptico 5x, botón Acción y USB-C. El iPhone Pro más grande y potente.",
+    "specs": {
+      "chip": "A17 Pro (3nm)",
+      "display": "6.7 pulgadas Super Retina XDR OLED, ProMotion 120Hz, Always-On",
+      "camera": "Sistema de cámara Pro triple: 48MP Principal + 12MP Ultra Wide + 12MP Teleobjetivo 5x",
+      "frontal_camera": "12MP TrueDepth",
+      "battery": "Hasta 29 horas de reproducción de video",
+      "charging": "Carga rápida USB-C",
+      "storage": "256 GB, 512 GB, 1 TB",
+      "os": "iOS 17",
+      "connectivity": "5G, Wi-Fi 6E, Bluetooth 5.3, USB-C"
+    },
+    "variants": [
+      {
+        "id": "v15pm1",
+        "color": "Titanio Azul",
+        "colorHex": "#007aff",
+        "capacity": "256 GB",
+        "price": 5499900,
+        "stock": 5,
+        "image": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-15-pro-max-finish-select-202309-blue-titanium?wid=940&hei=1112&fmt=png-alpha&.v=1692845699311"
+      }
+    ],
+    "images": [
+      "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-15-pro-max-finish-select-202309-blue-titanium?wid=940&hei=1112&fmt=png-alpha&.v=1692845699311"
+    ],
+    "tags": [
+      "Oferta"
+    ],
+    "featured": false,
+    "discount": 12,
+    "originalPrice": 6249900,
+    "status": "nuevo"
+  },
+  {
+    "id": "iphone-15-pro-128gb-natural-titanium",
+    "name": "iPhone 15 Pro",
+    "model": "iPhone 15 Pro",
+    "brand": "Apple",
+    "generation": "15",
+    "category": "iPhone Pro",
+    "description": "Chip A17 Pro, diseño en titanio ligero, botón Acción personalizable y USB-C. Rendimiento profesional en formato compacto.",
+    "specs": {
+      "chip": "A17 Pro (3nm)",
+      "display": "6.1 pulgadas Super Retina XDR OLED, ProMotion 120Hz, Always-On",
+      "camera": "Sistema de cámara Pro triple: 48MP Principal + 12MP Ultra Wide + 12MP Teleobjetivo 3x",
+      "frontal_camera": "12MP TrueDepth",
+      "battery": "Hasta 23 horas de reproducción de video",
+      "charging": "Carga rápida USB-C",
+      "storage": "128 GB, 256 GB, 512 GB, 1 TB",
+      "os": "iOS 17",
+      "connectivity": "5G, Wi-Fi 6E, Bluetooth 5.3, USB-C"
+    },
+    "variants": [
+      {
+        "id": "v15p1",
+        "color": "Titanio Natural",
+        "colorHex": "#8e8e93",
+        "capacity": "128 GB",
+        "price": 4799900,
+        "stock": 7,
+        "image": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-15-pro-finish-select-202309-natural-titanium?wid=940&hei=1112&fmt=png-alpha&.v=1692845702708"
+      }
+    ],
+    "images": [
+      "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-15-pro-finish-select-202309-natural-titanium?wid=940&hei=1112&fmt=png-alpha&.v=1692845702708"
+    ],
+    "tags": [
+      "Oferta"
+    ],
+    "featured": false,
+    "discount": 10,
+    "originalPrice": 5339900,
+    "status": "nuevo"
+  },
+  {
+    "id": "iphone-15-128gb-blue",
+    "name": "iPhone 15",
+    "model": "iPhone 15",
+    "brand": "Apple",
+    "generation": "15",
+    "category": "iPhone de generaciones anteriores",
+    "description": "Cámara Fusion de 48MP con zoom óptico 2x, Dynamic Island, puerto USB-C y chip A16 Bionic. Innovación al alcance de todos.",
+    "specs": {
+      "chip": "A16 Bionic (4nm)",
+      "display": "6.1 pulgadas Super Retina XDR OLED",
+      "camera": "Cámara Fusion de 48MP + Ultra Wide de 12MP",
+      "frontal_camera": "12MP TrueDepth",
+      "battery": "Hasta 20 horas de reproducción de video",
+      "charging": "Carga MagSafe y USB-C",
+      "storage": "128 GB, 256 GB, 512 GB",
+      "os": "iOS 17",
+      "connectivity": "5G, Wi-Fi 6, Bluetooth 5.3, USB-C"
+    },
+    "variants": [
+      {
+        "id": "v7",
+        "color": "Azul",
+        "colorHex": "#007aff",
+        "capacity": "128 GB",
+        "price": 3199900,
+        "stock": 10,
+        "image": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-15-finish-select-202309-blue?wid=940&hei=1112&fmt=png-alpha&.v=1692913777972"
+      }
+    ],
+    "images": [
+      "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-15-finish-select-202309-blue?wid=940&hei=1112&fmt=png-alpha&.v=1692913777972"
+    ],
+    "tags": [
+      "Oferta"
+    ],
+    "featured": true,
+    "discount": 10,
+    "originalPrice": 3559900,
+    "status": "nuevo"
+  },
+  {
+    "id": "iphone-14-pro-max-128gb-deep-purple",
+    "name": "iPhone 14 Pro Max",
+    "model": "iPhone 14 Pro Max",
+    "brand": "Apple",
+    "generation": "14",
+    "category": "iPhone Pro Max",
+    "description": "Chip A16 Bionic, Dynamic Island, cámara principal de 48MP y Always-On display. Experiencia Pro completa con pantalla grande.",
+    "specs": {
+      "chip": "A16 Bionic (4nm)",
+      "display": "6.7 pulgadas Super Retina XDR OLED, ProMotion 120Hz, Always-On",
+      "camera": "Sistema de cámara Pro triple: 48MP Principal + 12MP Ultra Wide + 12MP Teleobjetivo 3x",
+      "frontal_camera": "12MP TrueDepth con Autofocus",
+      "battery": "Hasta 29 horas de reproducción de video",
+      "charging": "Carga rápida MagSafe",
+      "storage": "128 GB, 256 GB, 512 GB, 1 TB",
+      "os": "iOS 16",
+      "connectivity": "5G, Wi-Fi 6, Bluetooth 5.3, Lightning"
+    },
+    "variants": [
+      {
+        "id": "v14pm1",
+        "color": "Morado Profundo",
+        "colorHex": "#6b46c1",
+        "capacity": "128 GB",
+        "price": 4999900,
+        "stock": 6,
+        "image": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-14-pro-max-deeppurple-select?wid=940&hei=1112&fmt=png-alpha&.v=1663703841896"
+      }
+    ],
+    "images": [
+      "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-14-pro-max-deeppurple-select?wid=940&hei=1112&fmt=png-alpha&.v=1663703841896"
+    ],
+    "tags": [],
+    "featured": false,
+    "discount": 0,
+    "status": "nuevo"
+  },
+  {
+    "id": "iphone-14-pro-128gb-deep-purple",
+    "name": "iPhone 14 Pro",
+    "model": "iPhone 14 Pro",
+    "brand": "Apple",
+    "generation": "14",
+    "category": "iPhone Pro",
+    "description": "Chip A16 Bionic, Dynamic Island, cámara de 48MP y pantalla Always-On. Potencia Pro en tamaño ideal.",
+    "specs": {
+      "chip": "A16 Bionic (4nm)",
+      "display": "6.1 pulgadas Super Retina XDR OLED, ProMotion 120Hz, Always-On",
+      "camera": "Sistema de cámara Pro triple: 48MP Principal + 12MP Ultra Wide + 12MP Teleobjetivo 3x",
+      "frontal_camera": "12MP TrueDepth con Autofocus",
+      "battery": "Hasta 23 horas de reproducción de video",
+      "charging": "Carga rápida MagSafe",
+      "storage": "128 GB, 256 GB, 512 GB, 1 TB",
+      "os": "iOS 16",
+      "connectivity": "5G, Wi-Fi 6, Bluetooth 5.3, Lightning"
+    },
+    "variants": [
+      {
+        "id": "v14p1",
+        "color": "Morado Profundo",
+        "colorHex": "#6b46c1",
+        "capacity": "128 GB",
+        "price": 4599900,
+        "stock": 5,
+        "image": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-14-pro-deeppurple-select?wid=940&hei=1112&fmt=png-alpha&.v=1663703841896"
+      }
+    ],
+    "images": [
+      "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-14-pro-deeppurple-select?wid=940&hei=1112&fmt=png-alpha&.v=1663703841896"
+    ],
+    "tags": [],
+    "featured": false,
+    "discount": 0,
+    "status": "nuevo"
+  },
+  {
+    "id": "iphone-14-128gb-midnight",
+    "name": "iPhone 14",
+    "model": "iPhone 14",
+    "brand": "Apple",
+    "generation": "14",
+    "category": "iPhone económicos",
+    "description": "Sistema de dos cámaras, modo Acción, detección de choques y chip A15 Bionic. Seguridad y rendimiento confiables en un diseño elegante.",
+    "specs": {
+      "chip": "A15 Bionic (5nm)",
+      "display": "6.1 pulgadas Super Retina XDR OLED",
+      "camera": "Sistema avanzado de dos cámaras: 12MP Principal + 12MP Ultra Wide",
+      "frontal_camera": "12MP TrueDepth",
+      "battery": "Hasta 20 horas de reproducción de video",
+      "charging": "Carga MagSafe",
+      "storage": "128 GB, 256 GB, 512 GB",
+      "os": "iOS 16",
+      "connectivity": "5G, Wi-Fi 6, Bluetooth 5.3, Lightning"
+    },
+    "variants": [
+      {
+        "id": "v8",
+        "color": "Medianoche",
+        "colorHex": "#1c1c1e",
+        "capacity": "128 GB",
+        "price": 2599900,
+        "stock": 7,
+        "image": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-14-midnight-select-202209?wid=940&hei=1112&fmt=png-alpha&.v=1661026579508"
+      }
+    ],
+    "images": [
+      "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-14-midnight-select-202209?wid=940&hei=1112&fmt=png-alpha&.v=1661026579508"
+    ],
+    "tags": [],
+    "featured": false,
+    "discount": 0,
+    "status": "nuevo"
+  },
+  {
+    "id": "iphone-13-pro-max-128gb-sierra-blue",
+    "name": "iPhone 13 Pro Max",
+    "model": "iPhone 13 Pro Max",
+    "brand": "Apple",
+    "generation": "13",
+    "category": "iPhone Pro Max",
+    "description": "Chip A15 Bionic, pantalla Super Retina XDR con ProMotion, sistema de cámara Pro y batería de larga duración. El más grande y potente de la serie 13.",
+    "specs": {
+      "chip": "A15 Bionic (5nm)",
+      "display": "6.7 pulgadas Super Retina XDR OLED, ProMotion 120Hz",
+      "camera": "Sistema de cámara Pro triple: 12MP Principal + 12MP Ultra Wide + 12MP Teleobjetivo 3x",
+      "frontal_camera": "12MP TrueDepth",
+      "battery": "Hasta 28 horas de reproducción de video",
+      "charging": "Carga MagSafe",
+      "storage": "128 GB, 256 GB, 512 GB, 1 TB",
+      "os": "iOS 15",
+      "connectivity": "5G, Wi-Fi 6, Bluetooth 5.0, Lightning"
+    },
+    "variants": [
+      {
+        "id": "v13pm1",
+        "color": "Azul Sierra",
+        "colorHex": "#4a90e2",
+        "capacity": "128 GB",
+        "price": 4299900,
+        "stock": 8,
+        "image": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-13-pro-max-blue-select?wid=940&hei=1112&fmt=png-alpha&.v=1631652956000"
+      }
+    ],
+    "images": [
+      "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-13-pro-max-blue-select?wid=940&hei=1112&fmt=png-alpha&.v=1631652956000"
+    ],
+    "tags": [],
+    "featured": false,
+    "discount": 0,
+    "status": "nuevo"
+  },
+  {
+    "id": "iphone-13-pro-128gb-sierra-blue",
+    "name": "iPhone 13 Pro",
+    "model": "iPhone 13 Pro",
+    "brand": "Apple",
+    "generation": "13",
+    "category": "iPhone Pro",
+    "description": "Chip A15 Bionic, pantalla ProMotion, sistema de cámara Pro y Ceramic Shield. Rendimiento excepcional.",
+    "specs": {
+      "chip": "A15 Bionic (5nm)",
+      "display": "6.1 pulgadas Super Retina XDR OLED, ProMotion 120Hz",
+      "camera": "Sistema de cámara Pro triple: 12MP Principal + 12MP Ultra Wide + 12MP Teleobjetivo 3x",
+      "frontal_camera": "12MP TrueDepth",
+      "battery": "Hasta 22 horas de reproducción de video",
+      "charging": "Carga MagSafe",
+      "storage": "128 GB, 256 GB, 512 GB, 1 TB",
+      "os": "iOS 15",
+      "connectivity": "5G, Wi-Fi 6, Bluetooth 5.0, Lightning"
+    },
+    "variants": [
+      {
+        "id": "v13p1",
+        "color": "Azul Sierra",
+        "colorHex": "#4a90e2",
+        "capacity": "128 GB",
+        "price": 3899900,
+        "stock": 6,
+        "image": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-13-pro-blue-select?wid=940&hei=1112&fmt=png-alpha&.v=1631652956000"
+      }
+    ],
+    "images": [
+      "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-13-pro-blue-select?wid=940&hei=1112&fmt=png-alpha&.v=1631652956000"
+    ],
+    "tags": [],
+    "featured": false,
+    "discount": 0,
+    "status": "nuevo"
+  },
+  {
+    "id": "iphone-13-128gb-midnight",
+    "name": "iPhone 13",
+    "model": "iPhone 13",
+    "brand": "Apple",
+    "generation": "13",
+    "category": "iPhone económicos",
+    "description": "Sistema de dos cámaras, modo Cine, chip A15 Bionic y batería mejorada. Rendimiento excepcional para el día a día con diseño elegante.",
+    "specs": {
+      "chip": "A15 Bionic (5nm)",
+      "display": "6.1 pulgadas Super Retina XDR OLED",
+      "camera": "Sistema de dos cámaras: 12MP Principal + 12MP Ultra Wide",
+      "frontal_camera": "12MP TrueDepth",
+      "battery": "Hasta 19 horas de reproducción de video",
+      "charging": "Carga MagSafe",
+      "storage": "128 GB, 256 GB, 512 GB",
+      "os": "iOS 15",
+      "connectivity": "5G, Wi-Fi 6, Bluetooth 5.0, Lightning"
+    },
+    "variants": [
+      {
+        "id": "v9",
+        "color": "Medianoche",
+        "colorHex": "#1c1c1e",
+        "capacity": "128 GB",
+        "price": 2299900,
+        "stock": 15,
+        "image": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-13-midnight-select-2021?wid=940&hei=1112&fmt=png-alpha&.v=1645572315984"
+      }
+    ],
+    "images": [
+      "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-13-midnight-select-2021?wid=940&hei=1112&fmt=png-alpha&.v=1645572315984"
+    ],
+    "tags": [],
+    "featured": false,
+    "discount": 0,
+    "status": "nuevo"
+  }
+]
