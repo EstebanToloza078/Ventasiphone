@@ -1,0 +1,26 @@
+[
+  {
+    "id": "promo1",
+    "title": "iPhone 17 Pro - Lo último",
+    "description": "Descubre la nueva generación con tecnología de punta",
+    "image": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-17-pro-finish-select-202509?wid=512&hei=512&fmt=jpeg&qlt=90&.v=1757439291465",
+    "color": "#E8DFF5",
+    "link": "/catalogo"
+  },
+  {
+    "id": "promo2",
+    "title": "Ofertas Especiales",
+    "description": "Promociones verificadas en modelos seleccionados",
+    "image": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-16-finish-select-202409?wid=512&hei=512&fmt=jpeg&qlt=90&.v=1726165350708",
+    "color": "#DCEBFA",
+    "link": "/ofertas"
+  },
+  {
+    "id": "promo3",
+    "title": "iPhone Pro Max",
+    "description": "Máxima potencia y experiencia premium",
+    "image": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-16-pro-finish-select-202409?wid=512&hei=512&fmt=jpeg&qlt=90&.v=1726165764937",
+    "color": "#DDF2E5",
+    "link": "/catalogo"
+  }
+]

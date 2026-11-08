@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}iNova Store - Tienda de iPhone en Colombia{% endblock %}</title>
+    <meta name="description" content="{% block description %}Compra iPhone nuevos y reacondicionados en Colombia. Los mejores precios, garantía y envío a todo el país.{% endblock %}">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucide-static@0.263.1/font/lucide.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="{{ url_for('main.home') }}" class="nav-logo">
+                <i class="lucide-smartphone"></i>
+                <span>iNova Store</span>
+            </a>
+            
+            <button class="mobile-menu-btn">
+                <i class="lucide-menu"></i>
+            </button>
+            
+            <ul class="nav-menu">
+                <li><a href="{{ url_for('main.home') }}" class="nav-link">Inicio</a></li>
+                <li><a href="{{ url_for('main.catalog') }}" class="nav-link">Todos los iPhone</a></li>
+                <li><a href="{{ url_for('main.offers') }}" class="nav-link">Ofertas</a></li>
+                <li><a href="{{ url_for('main.catalog') }}?category=accesorios" class="nav-link">Accesorios</a></li>
+                <li><a href="{{ url_for('main.contact') }}" class="nav-link">Contacto</a></li>
+            </ul>
+            
+            <form class="nav-search" action="{{ url_for('main.catalog') }}" method="get">
+                <i class="lucide-search"></i>
+                <input type="text" name="q" placeholder="Buscar iPhone por número o modelo..." value="{{ request.args.get('q','') }}">
+            </form>
+            
+            <div class="nav-icons">
+                <a href="#" class="nav-icon" title="Favoritos">
+                    <i class="lucide-heart"></i>
+                </a>
+                <a href="{{ url_for('main.cart') }}" class="nav-icon" title="Carrito">
+                    <i class="lucide-shopping-cart"></i>
+                    <span class="cart-badge">0</span>
+                </a>
+                <a href="#" class="nav-icon" title="Perfil">
+                    <i class="lucide-user"></i>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>iNova Store</h3>
+                    <p style="color: var(--gris-medio); font-size: 0.9rem;">Tu tienda de confianza para iPhone en Colombia. Calidad, garantía y los mejores precios.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Tienda</h3>
+                    <ul>
+                        <li><a href="{{ url_for('main.catalog') }}">Todos los iPhone</a></li>
+                        <li><a href="{{ url_for('main.offers') }}">Ofertas</a></li>
+                        <li><a href="{{ url_for('main.catalog') }}?category=accesorios">Accesorios</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Ayuda</h3>
+                    <ul>
+                        <li><a href="{{ url_for('main.contact') }}">Contacto</a></li>
+                        <li><a href="#">Preguntas Frecuentes</a></li>
+                        <li><a href="#">Términos y Condiciones</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Información</h3>
+                    <ul>
+                        <li><a href="#">Sobre Nosotros</a></li>
+                        <li><a href="#">Política de Privacidad</a></li>
+                        <li><a href="#">Garantía</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 iNova Store. Todos los derechos reservados. | Precios en pesos colombianos (COP)</p>
+                <p style="margin-top: 0.5rem; font-size: 0.8rem;">Sitio web de demostración - Los productos, precios e inventario son datos de ejemplo</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,280 @@
+{% extends "base.html" %}
+
+{% block title %}{{ product.name }} - iNova Store{% endblock %}
+
+{% block content %}
+<section class="section" style="padding-top: 2rem;">
+    <div style="margin-bottom: 2rem;">
+        <a href="{{ url_for('main.catalog') }}" style="color: var(--gris-medio); text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
+            <i class="lucide-arrow-left"></i>
+            Volver al catálogo
+        </a>
+    </div>
+    
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-bottom: 3rem;">
+        <!-- Product Images -->
+        <div>
+            <div style="background: #ffffff; border-radius: 15px; padding: 1.5rem; margin-bottom: 1rem; box-shadow: 0 2px 8px rgba(0,0,0,0.04); display: flex; align-items: center; justify-content: center; min-height: 420px;">
+                <img src="{{ product.variants[0].image if product.variants else product.images[0] }}" alt="{{ product.name }}" id="mainImage" style="width: 100%; max-width: 420px; max-height: 380px; height: auto; object-fit: contain; object-position: center; display: block; margin: 0 auto;" onerror="this.src='https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=500'">
+            </div>
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                {% for img in product.images %}
+                <button style="border: 2px solid #ddd; border-radius: 10px; padding: 0.4rem; background: #ffffff; cursor: pointer; width: 72px; height: 72px; display: flex; align-items: center; justify-content: center;" onclick="document.getElementById('mainImage').src='{{ img }}'">
+                    <img src="{{ img }}" alt="{{ product.name }}" style="width: 100%; height: 100%; object-fit: contain; object-position: center;" onerror="this.src='https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=100'">
+                </button>
+                {% endfor %}
+            </div>
+        </div>
+        
+        <!-- Product Info -->
+        <div>
+            <div class="product-badges" style="position: static; margin-bottom: 1rem;">
+                {% for tag in product.tags %}
+                <span class="badge {% if tag == 'Nuevo' %}badge-new{% elif tag == 'Oferta' %}badge-sale{% elif tag == 'Más vendido' %}badge-popular{% endif %}">{{ tag }}</span>
+                {% endfor %}
+                {% if product.discount and product.discount > 0 %}
+                <span class="badge badge-sale">-{{ product.discount }}%</span>
+                {% endif %}
+            </div>
+            
+            <h1 style="font-size: 2rem; font-weight: 700; margin-bottom: 0.5rem;">{{ product.name }}</h1>
+            <p style="color: var(--gris-medio); margin-bottom: 1.5rem;">{{ product.description }}</p>
+            
+            <div style="margin-bottom: 1.5rem;">
+                <span style="font-size: 1.8rem; font-weight: 700;" id="detailPrice">{{ "{:,.0f}".format(product.variants[0].price) }} COP</span>
+                {% if product.discount and product.discount > 0 and product.originalPrice %}
+                <span style="font-size: 1.2rem; color: var(--gris-medio); text-decoration: line-through; margin-left: 0.75rem;">{{ "{:,.0f}".format(product.originalPrice) }} COP</span>
+                <span class="discount-badge" style="margin-left: 0.75rem;">-{{ product.discount }}%</span>
+                {% endif %}
+            </div>
+            
+            <div style="margin-bottom: 1.5rem;">
+                <h3 style="font-size: 1rem; font-weight: 600; margin-bottom: 0.75rem;">Color</h3>
+                <div class="product-colors" style="gap: 0.6rem;">
+                    {% for variant in product.variants %}
+                    <button class="color-option {% if loop.first %}active{% endif %} {% if variant.stock == 0 %}disabled{% endif %}" 
+                            style="background-color: {{ variant.colorHex }}; width: 40px; height: 40px;" 
+                            data-color="{{ variant.color }}" 
+                            data-capacity="{{ variant.capacity }}" 
+                            data-price="{{ variant.price }}" 
+                            data-image="{{ variant.image }}" 
+                            data-stock="{{ variant.stock }}"
+                            title="{{ variant.color }}{% if variant.stock == 0 %} (Agotado){% endif %}"
+                            onclick="selectVariant(this, {{ loop.index0 }})">
+                    </button>
+                    {% endfor %}
+                </div>
+                <p style="font-size: 0.9rem; color: var(--gris-medio); margin-top: 0.5rem;" id="selectedColor">{{ product.variants[0].color if product.variants else '' }}</p>
+            </div>
+            
+            <div style="margin-bottom: 1.5rem;">
+                <h3 style="font-size: 1rem; font-weight: 600; margin-bottom: 0.75rem;">Capacidad de almacenamiento</h3>
+                <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                    {% for variant in product.variants %}
+                    <button class="capacity-btn {% if loop.first %}active{% endif %} {% if variant.stock == 0 %}disabled{% endif %}" 
+                            data-capacity="{{ variant.capacity }}" 
+                            data-price="{{ variant.price }}" 
+                            data-stock="{{ variant.stock }}"
+                            onclick="selectCapacity(this, {{ loop.index0 }})"
+                            style="padding: 0.6rem 1rem; border: 2px solid {% if loop.first %}var(--gris-oscuro){% else %}#ddd{% endif %}; border-radius: 10px; background: white; cursor: {% if variant.stock == 0 %}not-allowed{% else %}pointer{% endif %}; font-weight: 600; opacity: {% if variant.stock == 0 %}0.4{% else %}1{% endif %};">
+                        {{ variant.capacity }}
+                    </button>
+                    {% endfor %}
+                </div>
+            </div>
+            
+            <div style="margin-bottom: 1.5rem;">
+                <h3 style="font-size: 1rem; font-weight: 600; margin-bottom: 0.75rem;">Disponibilidad</h3>
+                <p id="stockInfo" style="font-size: 0.9rem;">
+                    {% set first_variant = product.variants[0] if product.variants else none %}
+                    {% if first_variant %}
+                        {% if first_variant.stock > 10 %}
+                        <span style="color: #2ed573;">● Disponible ({{ first_variant.stock }} unidades)</span>
+                        {% elif first_variant.stock > 0 %}
+                        <span style="color: #ffa502;">● Últimas unidades ({{ first_variant.stock }} disponibles)</span>
+                        {% else %}
+                        <span style="color: #ff4757;">● Agotado</span>
+                        {% endif %}
+                    {% endif %}
+                </p>
+            </div>
+            
+            <div style="margin-bottom: 1.5rem;">
+                <h3 style="font-size: 1rem; font-weight: 600; margin-bottom: 0.75rem;">Cantidad</h3>
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                    <div style="display: flex; align-items: center; border: 2px solid #ddd; border-radius: 10px;">
+                        <button onclick="changeQuantity(-1)" style="padding: 0.6rem 0.9rem; border: none; background: none; cursor: pointer; font-size: 1.2rem;">-</button>
+                        <span id="quantity" style="padding: 0.6rem 1.2rem; font-weight: 600;">1</span>
+                        <button onclick="changeQuantity(1)" style="padding: 0.6rem 0.9rem; border: none; background: none; cursor: pointer; font-size: 1.2rem;">+</button>
+                    </div>
+                    <span style="font-size: 0.9rem; color: var(--gris-medio);">Máximo según inventario</span>
+                </div>
+            </div>
+            
+            <div style="display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
+                <button class="btn btn-primary" style="flex: 1; min-width: 140px; justify-content: center; padding: 0.9rem;" onclick="addToCartDetail()" id="addToCartBtn">
+                    <i class="lucide-shopping-cart"></i>
+                    Agregar al carrito
+                </button>
+                <button class="btn btn-secondary" style="flex: 1; min-width: 140px; justify-content: center; padding: 0.9rem;">
+                    <i class="lucide-zap"></i>
+                    Comprar ahora
+                </button>
+            </div>
+            
+            <div style="background: var(--azul-cielo); padding: 1rem; border-radius: 10px; margin-bottom: 1rem;">
+                <p style="font-size: 0.9rem; margin-bottom: 0.3rem;"><strong>Compra segura</strong> - Protegemos tu información</p>
+                <p style="font-size: 0.9rem;"><strong>Garantía</strong> - Según el producto</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Specifications -->
+    <div style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); margin-bottom: 3rem;">
+        <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem;">Especificaciones técnicas</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 0.75rem;">
+            {% if product.specs %}
+            {% for key, value in product.specs.items() %}
+            <div style="padding: 0.75rem 1rem; background: var(--gris-claro); border-radius: 8px; font-size: 0.9rem; line-height: 1.5;">
+                <strong style="text-transform: capitalize;">{{ key.replace('_', ' ') }}:</strong> {{ value }}
+            </div>
+            {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+    
+    <!-- Related Products -->
+    {% if related %}
+    <div>
+        <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem;">Productos relacionados</h2>
+        <div class="products-grid">
+            {% for rel in related %}
+            <div class="product-card">
+                <img src="{{ rel.variants[0].image if rel.variants else rel.images[0] }}" alt="{{ rel.name }}" class="product-image" onerror="this.src='https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400'">
+                <div class="product-info">
+                    <h3 class="product-name">{{ rel.name }}</h3>
+                    <p class="product-capacity">{{ rel.variants[0].capacity if rel.variants else '' }}</p>
+                    <div class="product-prices">
+                        <span class="price-current">{{ "{:,.0f}".format(rel.variants[0].price) }} COP</span>
+                    </div>
+                    <div class="product-actions">
+                        <a href="{{ url_for('main.product_detail', product_id=rel.id) }}" class="btn btn-outline btn-small" style="width: 100%; justify-content: center;">Ver detalles</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+</section>
+
+<script>
+let currentVariant = 0;
+let currentQuantity = 1;
+let maxStock = {{ product.variants[0].stock if product.variants else 0 }};
+
+function selectVariant(btn, index) {
+    // Update active color
+    document.querySelectorAll('.color-option').forEach(opt => opt.classList.remove('active'));
+    btn.classList.add('active');
+    
+    currentVariant = index;
+    const variant = {{ product.variants | tojson }};
+    const v = variant[index];
+    
+    document.getElementById('selectedColor').textContent = v.color;
+    document.getElementById('mainImage').src = v.image;
+    document.getElementById('detailPrice').textContent = new Intl.NumberFormat('es-CO').format(v.price) + ' COP';
+    maxStock = v.stock;
+    
+    // Update stock info
+    const stockInfo = document.getElementById('stockInfo');
+    if (v.stock > 10) {
+        stockInfo.innerHTML = '<span style="color: #2ed573;">● Disponible (' + v.stock + ' unidades)</span>';
+    } else if (v.stock > 0) {
+        stockInfo.innerHTML = '<span style="color: #ffa502;">● Últimas unidades (' + v.stock + ' disponibles)</span>';
+    } else {
+        stockInfo.innerHTML = '<span style="color: #ff4757;">● Agotado</span>';
+    }
+    
+    // Update add to cart button
+    const addBtn = document.getElementById('addToCartBtn');
+    if (v.stock == 0) {
+        addBtn.disabled = true;
+        addBtn.style.opacity = '0.5';
+        addBtn.style.cursor = 'not-allowed';
+    } else {
+        addBtn.disabled = false;
+        addBtn.style.opacity = '1';
+        addBtn.style.cursor = 'pointer';
+    }
+    
+    // Reset quantity if exceeds stock
+    if (currentQuantity > maxStock) {
+        currentQuantity = maxStock;
+        document.getElementById('quantity').textContent = currentQuantity;
+    }
+}
+
+function selectCapacity(btn, index) {
+    document.querySelectorAll('.capacity-btn').forEach(b => {
+        b.style.borderColor = '#ddd';
+        b.classList.remove('active');
+    });
+    btn.style.borderColor = 'var(--gris-oscuro)';
+    btn.classList.add('active');
+    selectVariant(document.querySelectorAll('.color-option')[index], index);
+}
+
+function changeQuantity(delta) {
+    const newQty = currentQuantity + delta;
+    if (newQty >= 1 && newQty <= maxStock) {
+        currentQuantity = newQty;
+        document.getElementById('quantity').textContent = currentQuantity;
+    }
+}
+
+function addToCartDetail() {
+    if (maxStock == 0) {
+        alert('Producto agotado');
+        return;
+    }
+    
+    const variant = {{ product.variants | tojson }};
+    const v = variant[currentVariant];
+    
+    let cart = JSON.parse(localStorage.getItem('inovaCart') || '[]');
+    const existingItem = cart.find(item => 
+        item.product_id === '{{ product.id }}' && 
+        item.color === v.color && 
+        item.capacity === v.capacity
+    );
+    
+    if (existingItem) {
+        existingItem.quantity += currentQuantity;
+    } else {
+        cart.push({
+            product_id: '{{ product.id }}',
+            name: '{{ product.name }}',
+            color: v.color,
+            colorHex: v.colorHex,
+            capacity: v.capacity,
+            price: v.price,
+            image: v.image,
+            quantity: currentQuantity
+        });
+    }
+    
+    localStorage.setItem('inovaCart', JSON.stringify(cart));
+    
+    // Update badge
+    const badge = document.querySelector('.cart-badge');
+    if (badge) {
+        const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+        badge.textContent = totalItems;
+    }
+    
+    alert('Producto agregado al carrito');
+}
+</script>
+{% endblock %}

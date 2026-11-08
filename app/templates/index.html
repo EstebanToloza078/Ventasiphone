@@ -1,0 +1,209 @@
+{% extends "base.html" %}
+
+{% block title %}iNova Store - Tu próximo iPhone está aquí{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-container">
+        <div class="hero-content">
+            <h1>Tu próximo iPhone está aquí.</h1>
+            <p>Descubre la tecnología Apple con opciones para cada estilo y presupuesto.</p>
+            <div class="hero-buttons">
+                <a href="{{ url_for('main.catalog') }}" class="btn btn-primary">
+                    <i class="lucide-smartphone"></i>
+                    Explorar iPhone
+                </a>
+                <a href="{{ url_for('main.offers') }}" class="btn btn-secondary">
+                    <i class="lucide-tag"></i>
+                    Ver ofertas
+                </a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-17-pro-max-finish-select-202509?wid=512&hei=512&fmt=jpeg&qlt=90&.v=1757439335168" alt="iPhone 17 Pro Max" onerror="this.src='https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=500'">
+        </div>
+    </div>
+</section>
+
+<!-- Promotions Carousel -->
+<section class="section">
+    <div class="carousel">
+        <div class="carousel-container">
+            {% for promo in promotions %}
+            <div class="carousel-slide" style="background: linear-gradient(135deg, {{ promo.color }} 0%, {{ promo.color }}80 100%);">
+                <div class="carousel-content">
+                    <h3>{{ promo.title }}</h3>
+                    <p>{{ promo.description }}</p>
+                    <a href="{{ promo.link }}" class="btn btn-primary">Ver productos</a>
+                </div>
+                <div class="carousel-image">
+                    <img src="{{ promo.image }}" alt="{{ promo.title }}" onerror="this.src='https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400'">
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <button class="carousel-btn carousel-prev">
+            <i class="lucide-chevron-left"></i>
+        </button>
+        <button class="carousel-btn carousel-next">
+            <i class="lucide-chevron-right"></i>
+        </button>
+        <div class="carousel-indicators">
+            {% for promo in promotions %}
+            <button class="carousel-indicator {% if loop.first %}active{% endif %}"></button>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Categories -->
+<section class="section">
+    <div class="section-header">
+        <h2>Categorías</h2>
+        <p>Encuentra el iPhone perfecto para ti</p>
+    </div>
+    <div class="categories-grid">
+        <a href="{{ url_for('main.catalog') }}?category=iphone-pro" class="category-card">
+            <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-16-pro-finish-select-202409?wid=200&hei=200&fmt=jpeg&qlt=90&.v=1726165764937" alt="iPhone Pro" onerror="this.src='https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=200'">
+            <h3>iPhone Pro</h3>
+        </a>
+        <a href="{{ url_for('main.catalog') }}?category=iphone-promax" class="category-card">
+            <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-17-pro-max-finish-select-202509?wid=200&hei=200&fmt=jpeg&qlt=90&.v=1757439335168" alt="iPhone Pro Max" onerror="this.src='https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=200'">
+            <h3>iPhone Pro Max</h3>
+        </a>
+        <a href="{{ url_for('main.catalog') }}?category=economicos" class="category-card">
+            <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-13-finish-select-202207-pink?wid=200&hei=200&fmt=jpeg&qlt=90&.v=1661991051155" alt="iPhone Económicos" onerror="this.src='https://images.unsplash.com/photo-1556656793-08538906a9f8?w=200'">
+            <h3>iPhone Económicos</h3>
+        </a>
+        <a href="{{ url_for('main.catalog') }}?category=anteriores" class="category-card">
+            <img src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-15-finish-select-202309-blue?wid=200&hei=200&fmt=jpeg&qlt=90&.v=1692913793892" alt="Generaciones Anteriores" onerror="this.src='https://images.unsplash.com/photo-1523206489230-c012c64b2b48?w=200'">
+            <h3>Generaciones Anteriores</h3>
+        </a>
+    </div>
+</section>
+
+<!-- Featured Products -->
+<section class="section">
+    <div class="section-header">
+        <h2>Productos Destacados</h2>
+        <p>Novedades y productos más populares</p>
+    </div>
+    <div class="products-grid">
+        {% for product in products %}
+        <div class="product-card" data-product-id="{{ product.id }}">
+            <div class="product-badges">
+                {% for tag in product.tags %}
+                <span class="badge {% if tag == 'Nuevo' %}badge-new{% elif tag == 'Oferta' %}badge-sale{% elif tag == 'Más vendido' %}badge-popular{% endif %}">{{ tag }}</span>
+                {% endfor %}
+                {% if product.discount and product.discount > 0 %}
+                <span class="badge badge-sale">-{{ product.discount }}%</span>
+                {% endif %}
+            </div>
+            <button class="product-favorite" title="Agregar a favoritos">
+                <i class="lucide-heart"></i>
+            </button>
+            <img src="{{ product.variants[0].image if product.variants else product.images[0] }}" alt="{{ product.name }}" class="product-image" onerror="this.src='https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400'">
+            <div class="product-info">
+                <h3 class="product-name">{{ product.name }}</h3>
+                <p class="product-capacity">Almacenamiento: {{ product.variants[0].capacity if product.variants else 'N/A' }}</p>
+                
+                <div class="product-colors">
+                    {% for variant in product.variants %}
+                    <button class="color-option {% if loop.first %}active{% endif %} {% if variant.stock == 0 %}disabled{% endif %}" 
+                            style="background-color: {{ variant.colorHex }};" 
+                            data-color="{{ variant.color }}" 
+                            data-capacity="{{ variant.capacity }}" 
+                            data-price="{{ variant.price }}" 
+                            data-image="{{ variant.image }}" 
+                            title="{{ variant.color }}{% if variant.stock == 0 %} (Agotado){% endif %}">
+                    </button>
+                    {% endfor %}
+                </div>
+                
+                <div class="product-prices">
+                    {% if product.discount and product.discount > 0 and product.originalPrice %}
+                    <span class="price-current">{{ "{:,.0f}".format(product.variants[0].price) }} COP</span>
+                    <span class="price-old">{{ "{:,.0f}".format(product.originalPrice) }} COP</span>
+                    <span class="discount-badge">-{{ product.discount }}%</span>
+                    {% else %}
+                    <span class="price-current">{{ "{:,.0f}".format(product.variants[0].price) }} COP</span>
+                    {% endif %}
+                </div>
+                
+                <div class="product-stock">
+                    {% set first_variant = product.variants[0] if product.variants else none %}
+                    {% if first_variant %}
+                        {% if first_variant.stock > 10 %}
+                        <span class="stock-available">● Disponible</span>
+                        {% elif first_variant.stock > 0 %}
+                        <span class="stock-low">● Últimas unidades ({{ first_variant.stock }})</span>
+                        {% else %}
+                        <span class="stock-out">● Agotado</span>
+                        {% endif %}
+                    {% endif %}
+                </div>
+                
+                <div class="product-actions">
+                    <a href="{{ url_for('main.product_detail', product_id=product.id) }}" class="btn btn-outline btn-small">
+                        <i class="lucide-eye"></i>
+                        <span>Ver detalles</span>
+                    </a>
+                    <button class="btn btn-primary btn-small btn-add-cart" {% if product.variants and product.variants[0].stock == 0 %}disabled style="opacity: 0.5; cursor: not-allowed;"{% endif %}>
+                        <i class="lucide-shopping-cart"></i>
+                        <span>Agregar</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div style="text-align: center; margin-top: 2rem;">
+        <a href="{{ url_for('main.catalog') }}" class="btn btn-primary">Ver todos los productos</a>
+    </div>
+</section>
+
+<!-- Benefits -->
+<section class="section">
+    <div class="section-header">
+        <h2>¿Por qué comprar con nosotros?</h2>
+    </div>
+    <div class="benefits-grid">
+        <div class="benefit-card">
+            <div class="benefit-icon">
+                <i class="lucide-shield-check"></i>
+            </div>
+            <h3>Compra segura</h3>
+            <p>Protegemos tu información</p>
+        </div>
+        <div class="benefit-card">
+            <div class="benefit-icon">
+                <i class="lucide-award"></i>
+            </div>
+            <h3>Garantía</h3>
+            <p>Según el producto</p>
+        </div>
+        <div class="benefit-card">
+            <div class="benefit-icon">
+                <i class="lucide-credit-card"></i>
+            </div>
+            <h3>Opciones de pago</h3>
+            <p>Múltiples formas de pago</p>
+        </div>
+        <div class="benefit-card">
+            <div class="benefit-icon">
+                <i class="lucide-truck"></i>
+            </div>
+            <h3>Envíos en Colombia</h3>
+            <p>A nivel nacional</p>
+        </div>
+        <div class="benefit-card">
+            <div class="benefit-icon">
+                <i class="lucide-headphones"></i>
+            </div>
+            <h3>Atención al cliente</h3>
+            <p>Estamos para ayudarte</p>
+        </div>
+    </div>
+</section>
+{% endblock %}
